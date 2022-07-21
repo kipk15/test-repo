@@ -92,9 +92,8 @@ message=(f'original order: {names}\n sorted order: {sorted(names)}\n original: {
 #print(message)
 "reverse method"
 names.reverse()
-#print(names)
 "len() function"
-#print(f'{len(names)} items in names_list')
+print(f'{len(names)} items in names_list')
 
 pizzas = [] #['pep','egg', 'tea']
 for pizza in pizzas:
@@ -105,3 +104,8 @@ for pizza in pizzas:
     #else:
         print(f'{pizza} pizza is new')
 #print('who dont like good dough though')
+
+#let's get started on functions
+def fuctionName(parameter):
+    print(f'\n hello {parameter}!')
+fuctionName('Scoopy')
