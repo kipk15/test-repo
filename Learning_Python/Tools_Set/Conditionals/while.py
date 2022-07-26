@@ -59,6 +59,8 @@ while current_number < 10:
 
 
 seats = 0
+# add a flag, as long as active
+# python runs the while loop
 active = True
 while active:
     prompt = "How old are you: "
@@ -80,10 +82,62 @@ while active:
 
     # we only have 5 seats in the house
     # break out of loop when full
-    if (seats == 5):
+    if (seats == 2):
         print("The theater is now full!")
         break
+
+# Moving items from one list to another
+# Deli - loop thru list of sandwich orders
+# print a message for each sandwich
+# add it to finished
+sandwich_orders = ['tuna', 'san1', 'san2', 'tuna', 'san3', 'sanH', 'tuna']
+finished_sandwiches = []
+
+while sandwich_orders:
+    current_sandwich = sandwich_orders.pop()
+
+    # deli has no tuna
+    if (current_sandwich == 'tuna'):
+        print("Sorry, we are out of tuna")
+        continue
+
+    print(f"Making {current_sandwich.title()} sandwich")
+    finished_sandwiches.append(current_sandwich)
+
+# display all finished sandwiches
+print("\nThe following Sandwiches have been made: ")
+for finished_sandwich in finished_sandwiches:
+    print(f"{finished_sandwich.title()}")
+
+# poll-taking
+# Dream Vacation example
+responses = {}
+
+# add a flag
+polling_active = True
+while polling_active:
+    prompt0 = "What is your name? "
+    prompt1 = "If you could visit one place in the world, "
+    prompt1 += "where would you go? "
+    name = input(prompt0)
+    response = input(prompt1)
+
+    # store responses in a dictionary
+    responses[name] = response
+
+    # check if someone else would like to take poll
+    prompt3 = "Would you like to let another person respond? (yes/no) "
+    repeat = input(prompt3)
+
+    if repeat == 'no':
+        polling_active = False
     
+    # Polling complete, show results
+print("\n\t--Poll Results--\t")
+for name, response in responses.items():
+    print(f"{name.title()} would like to visit {response.title()}")
+
+
 
 
     
