@@ -81,7 +81,7 @@ def send_messages(messages):
     sent_messages = []
     while messages:
         current_message = messages.pop()
-        print(f"\n sending {current_message.title()} now")
+        #print(f"\n sending {current_message.title()} now")
         sent_messages.append(current_message)
     return(sent_messages)
 messages0 = ['hey', 'where', 'are', 'you']
