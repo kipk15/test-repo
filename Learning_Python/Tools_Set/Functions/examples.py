@@ -20,8 +20,10 @@ def get_formatted_name(first_name, last_name, middle_name = ''):
 # you can use default values to make arguments optional
 # e.g adding middle name to function above,
 # with a default value of ''
+"""
 performer = get_formatted_name('Raphy', 'Jr.', 'Scons')
 print(f"\nDJ {performer} is performing tonight!")
+"""
 
 # Returning a Dictionary
 def build_person(first_name, last_name, occupation=None):
@@ -32,31 +34,19 @@ def build_person(first_name, last_name, occupation=None):
         person = {'first': first_name, 'last': last_name}
     return person
 
+"""
 dancer = build_person('didDidi', 'the_dancer')
-print (dancer)
+print (dancer)"""
 
 # you can easily extend this function to accept 
 # optional values e.g middle name, age, occupation etc
 # you just have to change the function accordingly
 
 # add occupation to function above
+"""
 surveyor = build_person('Lansh', 'the_lot', 'surveyor')
 print (surveyor)
-
-# using functions with a while loop
-while True:
-    print("Please tell me your name:")
-    print("Enter 'q' at any time to quit")
-
-    f_name = input("First name: ")
-    if(f_name == 'q'):
-        break
-    l_name = input("Last name: ")
-    if(l_name == 'q'):
-        break
-
-    formatted_name = get_formatted_name(f_name, l_name)
-    print(f"\nHello, {formatted_name}!\n")
+"""
 
 # make_album() function
 # takes in an artist name and album title
@@ -81,7 +71,7 @@ def send_messages(messages):
     sent_messages = []
     while messages:
         current_message = messages.pop()
-        #print(f"\n sending {current_message.title()} now")
+        print(f"\n sending {current_message.title()} now")
         sent_messages.append(current_message)
     return(sent_messages)
 messages0 = ['hey', 'where', 'are', 'you']
