@@ -4,6 +4,7 @@
 
 # the return statement takes a values from inside a function 
 # and sends it back to the line that called the function
+
 def get_formatted_name(first_name, last_name, middle_name = ''):
     """ return a full name, neatly formatted """
     if middle_name:
@@ -69,9 +70,9 @@ def make_album(artist_name, album_title, songs=None):
     else:
         album = {'Artist': artist_name.title(), 'Album_title': album_title.title()}
     return album
-album0 = make_album('Jamesaw', 'Reposty')
-album1 = make_album('Hales', 'remaKe', 12)
-album2 = make_album('Denzel', 'Cross-fas', 4)
+album0 = make_album('JImJam', 'tomORROw')
+album1 = make_album('Wash', 'tOODAY', 12)
+album2 = make_album('Denzel', 'EVVeryday', 4)
 print("\n",album0,"\n", album1,"\n", album2)
 
 # prevemting a function from modifying a list
@@ -89,3 +90,39 @@ messages0 = ['hey', 'where', 'are', 'you']
 sent_messages0 = send_messages(messages0[:])
 print(sent_messages0)
 print (messages0)
+
+# Passing Arbitrary number of arguments
+# to allow a parameter to collect as many arguments
+# as the calling line provides
+def make_pizza(size, *toppings):
+    """summarize pizza being made"""
+    print(f"\nMaking a {size}-inch pizza with the following toppings:")
+    for topping in toppings:
+        print(f"- {topping}")
+
+# note that the asterisk in the parameter name *toppings
+# tells python to make an empty tuple called toppings
+# and pack whatever values it receives into this tuple
+make_pizza(18, 'pepperoni')
+make_pizza(12, 'mushrooms', 'pepper', 'onions', 'cheesy')
+
+# Mixing positional and arbitrary arguments(*args)
+# lets add size to function above
+
+# using arbitrary arguments
+# accepts as many key-value pairs
+# as the calling statement provides
+def build_profile(first, last, init=None, **user_info):
+    """build a dictionary containing
+        everything we know about a user"""
+    if init:
+        user_info['initial'] = init
+        user_info['first_name'] = first
+        user_info['last_name'] = last
+    else:
+        user_info['first_name'] = first
+        user_info['last_name'] = last
+    return user_info
+user_profile = build_profile('Nelson', 'Keys', 'Mr.', Age = 30, occupation = 'doctor' )
+print ("\n",user_profile)
+
