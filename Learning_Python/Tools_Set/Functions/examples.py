@@ -12,8 +12,6 @@ def get_formatted_name(first_name, last_name, middle_name = ''):
     else:
         full_name = f"{first_name} {last_name}"
     return full_name.title()
-dj = get_formatted_name('Lasso', 'magoy')
-print(f"\nDJ {dj} is performing tonight!")
 
 # Making an argument optional
 # to allow people using the function to provide
@@ -109,20 +107,4 @@ make_pizza(12, 'mushrooms', 'pepper', 'onions', 'cheesy')
 # Mixing positional and arbitrary arguments(*args)
 # lets add size to function above
 
-# using arbitrary arguments
-# accepts as many key-value pairs
-# as the calling statement provides
-def build_profile(first, last, init=None, **user_info):
-    """build a dictionary containing
-        everything we know about a user"""
-    if init:
-        user_info['initial'] = init
-        user_info['first_name'] = first
-        user_info['last_name'] = last
-    else:
-        user_info['first_name'] = first
-        user_info['last_name'] = last
-    return user_info
-user_profile = build_profile('Nelson', 'Keys', 'Mr.', Age = 30, occupation = 'doctor' )
-print ("\n",user_profile)
 
