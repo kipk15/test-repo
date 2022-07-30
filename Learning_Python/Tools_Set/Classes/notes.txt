@@ -1,0 +1,14 @@
+in object oriented programming, you write:
+classes to represent real-world things and situations
+and objects based on these classes
+instantiation is making an object from a class, i.e
+you work with instances of a class
+
+- a function that's part of a class is a method
+# the __init__()method
+    - a special method that runs automatically whenever
+    we create a new instance based on the given class
+
+Making an instance from a class
+Think of a class as a set of instructions that tells python 
+how to make individual instances representing specific objects

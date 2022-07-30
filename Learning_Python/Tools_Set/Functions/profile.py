@@ -10,17 +10,19 @@ def build_profile():
     """build a dictionary containing
         everything we know about a user"""
     info_needed = ['first_name', 'last_name', 'middle_name', 'age', 'occupation']
+    digits_entered = []
     info_entered = []
     for item in info_needed:
-        if item == 'age':
-            answer = (input(f"Please enter your {item}: "))
+        answer = (input(f"Please enter your {item}: "))
+        if answer is int:
+            digits_entered.append(int(answer))
         else:
-            answer = input(f"Please enter your {item}: ").lower()
-        info_entered.append({item, answer})
+            info_entered.append(answer.lower())
     print (info_entered)
+    print (digits_entered)
 
-    nemesis = []
-    i=0
+
+""" i=0
     while i < len(info_entered):
         for key, value in info_entered[i]:
             if key == "first_name":
@@ -33,7 +35,7 @@ def build_profile():
     formatted_name = format.get_formatted_name(f_name, l_name, m_name, init = 'Mr.')
     if formatted_name:
         user_info['name'] = formatted_name
-    return user_info
+    return user_info"""
 build_profile()
 
 
