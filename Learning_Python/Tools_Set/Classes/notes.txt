@@ -12,3 +12,7 @@ you work with instances of a class
 Making an instance from a class
 Think of a class as a set of instructions that tells python 
 how to make individual instances representing specific objects
+
+Inheritance
+when one class takes on the attributes and methods of the first class
+original being the parent class and the new being the child class
