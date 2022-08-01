@@ -35,6 +35,10 @@ class Battery():
         """print a statement describing the battery size"""
         print(f"This vehicle has a {self.battery_size}kWh battery.")
 
+    def upgrade_battery(self):
+        if self.battery_size != 100:
+            self.battery_size = 100
+
     def get_range(self):
         """print a statement about the range this battery provides"""
         if self.battery_size == 75:
@@ -55,5 +59,7 @@ class ElectricCar(Car):
 my_ebike = ElectricCar('Beast-made', 'model fz1', 2023)
 print(my_ebike.get_descriptive_name())
 #my_ebike.battery_size = 100
+my_ebike.battery.describe_battery()
+my_ebike.battery.upgrade_battery()
 my_ebike.battery.describe_battery()
 my_ebike.battery.get_range()
