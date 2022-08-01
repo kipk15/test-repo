@@ -45,7 +45,7 @@ my_new_whip.read_odometer()
 """add odometer_reading to function above"""
 
 my_used_car = Car('subaru', 'outback', 2015)
-print(f"\n{my_used_car.get_descriptive_name()}")
+print(f"\n{my_used_car.get_descriptive_name()})
 
 my_used_car.update_odometer(23_400)
 my_used_car.read_odometer()

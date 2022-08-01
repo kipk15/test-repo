@@ -19,3 +19,24 @@ original being the parent class and the new being the child class
 
 when you create a child class, the parent class must be part of the
 current file and must appear before the child class in the file
+    - the name of the parent class must be included in parantheses 
+      in definition of a child class
+    - super() function - a special function that allows you to call
+      a method from the parent class(comes from the convention of 
+      calling the parent class a superclass and the child, a subclass)
+
+defining attributes and methods for the child class
+    - after initializing attributes of parent class with the super function,
+      eg super().__init__(make, model, year), we then initialize attributes and methods
+      specific to the child class
+    - You can also override any method from the parent class that doesn't fit what
+      you are trying to model with the child class. You do this by re-writing the
+      method and printing some info to reflect that the given method doesn't apply
+
+Instances as Attributes
+    - you can break your large class into smaller classes that work together
+      For example, if we continue adding detail to the electricCar class,
+      we might notice that we are adding many attributes and methods specific 
+      to the car's battery. When we see this happen', we can stop and move those 
+      attributes and methods to a separate class called Battery. Then we can
+      use a Battery instance as an attribute in the ElectricCar class
