@@ -1,2 +1,3 @@
 #ignore .DS_Store file changes when making commits
 *.DS_Store
+*.pyc

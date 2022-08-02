@@ -1,29 +1,9 @@
 # inheriting from parent class car
-class Car:
-    def __init__(self, make, model, year):
-        """initialize attributes to describe a car"""
-        self.make = make
-        self.model = model
-        self.year = year
-        self.odometer_reading = 0
-
-    def get_descriptive_name(self):
-        """Return a neatly formatted descriptive name"""
-        long_name = f"{self.year} {self.make} {self.model}"
-        return long_name.title()
-
-    def read_odometer(self):
-        """print a statement showing the car's mileage"""
-        print(f"This car has {self.odometer_reading} miles on it.")
-    
-    def update_odometer(self, mileage):
-        """set odometer reading to the given value"""
-        self.odometer_reading = mileage
-    
-    def increment_odometer(self, miles):
-        """add given amount to the odometer reading"""
-        self.odometer_reading += miles
-
+#from car import Car 
+""" above: importing specific class
+    below: importing entire module- and using dot notation 
+    to specify classes"""
+import car
 
 class Battery():
     """A simple attempt to model a battery for an electric car"""
@@ -47,7 +27,7 @@ class Battery():
             range = 315
         
         print(f"This car can go about {range} miles on a full charge.")
-class ElectricCar(Car):
+class ElectricCar(car.Car):# since we imported entire module
     """represent aspects of a car, specific to 
     electric vehicles"""
     def __init__(self, make, model, year):
@@ -56,10 +36,10 @@ class ElectricCar(Car):
         super().__init__(make, model, year)
         self.battery = Battery()
                
-my_ebike = ElectricCar('Beast-made', 'model fz1', 2023)
+"""my_ebike = ElectricCar('Beast-made', 'model fz1', 2023)
 print(my_ebike.get_descriptive_name())
 #my_ebike.battery_size = 100
 my_ebike.battery.describe_battery()
 my_ebike.battery.upgrade_battery()
 my_ebike.battery.describe_battery()
-my_ebike.battery.get_range()
+my_ebike.battery.get_range()"""
