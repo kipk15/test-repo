@@ -30,5 +30,3 @@ class IceCreamStand(Restaurant):
         for item in self.flavors:
             print(f"\t{item}")
 
-my_stand = IceCreamStand('my-stand', 'cream-ice')
-my_stand.describe_flavors()

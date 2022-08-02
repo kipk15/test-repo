@@ -40,3 +40,10 @@ Instances as Attributes
       to the car's battery. When we see this happen', we can stop and move those 
       attributes and methods to a separate class called Battery. Then we can
       use a Battery instance as an attribute in the ElectricCar class
+
+Importing classes
+    - You want to keep your files as uncluttered as possible. To help,
+      python lets you store classes in modules and then import the classes
+      you need into your main program
+    - You can either import a single class or multiple classes in a modules
+    -n
