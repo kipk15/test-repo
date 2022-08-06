@@ -17,6 +17,20 @@ class Employee():
     def pay_raise(self):
         self.pay = int (self.pay * self.raise_amount)
 
+    def __repr__(self):
+        return(f"Employee({self.fname}, {self.lname}, {self.pay})")
+    
+    def __str__(self):
+        return(f"Employee({self.fullname()}, {self.department})")
+
+    # eg adding two employees gives their total salaries
+    def __add__(self, other):
+        return self.pay + other.pay
+
+    # dunder method that displays # of characters in a fullname
+    def __len__(self):
+        return len(self.fullname())
+
     @classmethod # takes a class as an instance
     def set_raise_amt(cls, amount):
         cls.raise_amount = amount
@@ -58,6 +72,7 @@ class Manager(Employee):
         print(f"Employees under {self.fullname()} are:")
         for emp in self.employees:
             print(f"\t-{emp.fullname()}")
+    
 
 print(Employee.num_of_employees)
 emp_1 = Employee('Joe', 'May', 'logistics', 5000)
@@ -84,6 +99,12 @@ man_1.pay_raise()
 print(dev_1.__dict__)
 print(man_1.__dict__)
 man_1.show_employees()
+
+print(repr(emp_1)) # or print(emp_1.__repr_())
+print(str(emp_2))
+print(emp_1 + emp_2)
+print(len(emp_1))
+print(emp_2.__len__())
 
 
 
