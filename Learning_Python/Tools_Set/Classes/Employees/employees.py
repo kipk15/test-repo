@@ -8,11 +8,29 @@ class Employee():
         self.fname = fname
         self.lname = lname
         self.department = department
+        #self.email = fname + '.' + lname + 'email.com'
         self.pay = pay
         
         Employee.num_of_employees += 1
+    @property
     def fullname(self):
         return(f"{self.fname.title()} {self.lname.title()}")
+
+    @fullname.setter
+    def fullname(self, name):
+        fname, lname = name.split(' ')
+        self.fname = fname
+        self.lname = lname
+
+    @fullname.deleter
+    def fullname(self):
+        print(f'Deleting name {self.fullname}!')
+        self.fname = None
+        self.lname = None
+
+    @property # allows accessing this mthd as an attribute
+    def email(self):
+        return self.fname + '.' + self.lname + '@email.com'
 
     def pay_raise(self):
         self.pay = int (self.pay * self.raise_amount)
@@ -21,7 +39,7 @@ class Employee():
         return(f"Employee({self.fname}, {self.lname}, {self.pay})")
     
     def __str__(self):
-        return(f"Employee({self.fullname()}, {self.department})")
+        return(f"Employee({self.fullname}, {self.department})")
 
     # eg adding two employees gives their total salaries
     def __add__(self, other):
@@ -29,7 +47,7 @@ class Employee():
 
     # dunder method that displays # of characters in a fullname
     def __len__(self):
-        return len(self.fullname())
+        return len(self.fullname)
 
     @classmethod # takes a class as an instance
     def set_raise_amt(cls, amount):
@@ -69,9 +87,9 @@ class Manager(Employee):
             employees.remove(emp)
     
     def show_employees(self):
-        print(f"Employees under {self.fullname()} are:")
+        print(f"Employees under {self.fullname} are:")
         for emp in self.employees:
-            print(f"\t-{emp.fullname()}")
+            print(f"\t-{emp.fullname}")
     
 
 print(Employee.num_of_employees)
@@ -105,6 +123,17 @@ print(str(emp_2))
 print(emp_1 + emp_2)
 print(len(emp_1))
 print(emp_2.__len__())
+
+print(emp_1.email)
+print(emp_1.fullname)
+# deleter
+del emp_1.fullname
+
+# setter
+emp_1.fullname = 'Gald Randa'
+print(emp_1.email)
+print(emp_1.fullname)
+
 
 
 
