@@ -1,29 +1,33 @@
-#availability dictionary
-###
-availability = {'date': '01', 
-'times': [['3-4pm', 'open'],['2-3pm', 'open'],['1-2pm', 'booked']]}
+class Requests():
+    new_requests = []
+    requests_made = 0
 
-#req per user
-#req per timeslot
-#req = {'date': '01', 
-#'times': [['viz': ['12-1pm', 'confirmed']]]}
+    def __init__(self, user, date, timeslot, status='open'):
+        self.user = user
+        self.date = date
+        self.timeslot = timeslot
+        self.status = status
 
-req = {'date': '01', 
-'user1': [['3-4pm', 'yes'],['2-3pm', 'no'],['1-2pm', 'no']]}
+        Requests.requests_made += 1
 
+    @property
+    def info(self):
+        return [self.user, self.date, self.timeslot, self.status]
 
-#def request_creation(req):
-#    request = req[]
+    def add_request(self):
+        for item in self.info:
+            Requests.new_requests.append(item)
 
-#print(availability['times'])
-###
-#while(i<len(req['user1'])):
-#    if(availability['times'][i]==req['user1'][i])):
-#
-#    print('jj')
-#    i=i+1
-
-
-
-#['biz': [['12-1pm', 'confirmed'], ['12-1pm', 'confirmed']]],
-#['wiz': [['12-1pm', 'confirmed'], ['12-1pm', 'confirmed']]]
+    def review_request(self, choice):
+        if self.status == 'pending':
+            if choice == 'accept':
+                self.status = 'accepted'
+            else:
+                self.status = 'declined'
+            
+req_1 = Requests('Jill', '92/99/90', [1-2, 3-6], 'pending')
+req_1.add_request()
+print(Requests.new_requests)
+print(Requests.requests_made)
+req_1.review_request('')
+print(req_1.status)

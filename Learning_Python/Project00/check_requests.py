@@ -5,11 +5,13 @@ requests01 = {'date': 'a', 'schedule':[
     ['user1', ['1 pm - 2 pm', '2 pm - 3 pm', '3 pm - 4 pm', '12 pm - 1 pm']],
     ['user2', ['1 pm - 2 pm', '4 pm - 5 pm']],
     ['user3', ['12 pm - 1 pm', '2 pm - 3 pm']]]}
+    
 def invalidate_request(requests, user):
     base_request= []
     other_request= []
     req=requests['schedule']
     i=0
+
     #loop through req and find user of interest
     while (i < len(req)):
         if (req[i][0] != user ):
