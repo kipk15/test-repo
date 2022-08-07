@@ -1,33 +1,48 @@
 class Requests():
-    new_requests = []
+    new_requests = {}
     requests_made = 0
 
-    def __init__(self, user, date, timeslot, status='open'):
+    def __init__(self, user, date, timeslot, status='pending'):
         self.user = user
         self.date = date
         self.timeslot = timeslot
         self.status = status
 
-        Requests.requests_made += 1
-
-    @property
-    def info(self):
-        return [self.user, self.date, self.timeslot, self.status]
-
+        Requests.requests_made += 1 
+        
     def add_request(self):
-        for item in self.info:
-            Requests.new_requests.append(item)
+        Requests.new_requests[self.user] = [self.timeslot, self.status]
 
-    def review_request(self, choice):
-        if self.status == 'pending':
-            if choice == 'accept':
-                self.status = 'accepted'
-            else:
-                self.status = 'declined'
-            
-req_1 = Requests('Jill', '92/99/90', [1-2, 3-6], 'pending')
+    
+    def display_requests():
+        for key, value in Requests.new_requests.items():
+            print (f"\n{key}: {value}")
+
+    def review_request(user):
+        for key, value in Requests.new_requests.items():
+            if key == user:
+                value[1] = 'accepted'
+                times_accepted = value[0]
+            """else:
+                i = 0
+                while i < len (Requests.new_requests.values()):
+                    for a in Requests.new_requests.values():
+                        for b in 
+                for value[0]= 'declined'"""
+req_1 = Requests('Jill', 'dd/mm/yy', ['1-2', '3-6'])
+req_2 = Requests('nuse', 'dd/mm/yy', ['1-2', '8-6'])
+req_3 = Requests('Josl', 'dd/mm/yy', ['2-1', '3-6'])
+req_4 = Requests('Jodjd', 'dd/mm/yy', ['1-2', '9-6'])
 req_1.add_request()
-print(Requests.new_requests)
+req_2.add_request()
+req_3.add_request()
+req_4.add_request()
+
+
+Requests.display_requests()
+"\n"
+Requests.review_request('nuse')
 print(Requests.requests_made)
-req_1.review_request('')
-print(req_1.status)
+Requests.display_requests()
+#req_1.review_request('')
+#print(req_1.status)
