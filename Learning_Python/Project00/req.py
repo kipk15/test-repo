@@ -1,37 +1,43 @@
 class Requests():
     new_requests = {}
+    times_accepted = {}
+    times_4review = {}
     requests_made = 0
 
-    def __init__(self, user, date, timeslot=[], status='pending'):
+    def __init__(self, user, date, timeslots=[], status='pending'):
         self.user = user
         self.date = date
-        self.timeslot = timeslot
+        self.timeslots = timeslots
         self.status = status
 
         Requests.requests_made += 1 
-        
-    def add_request(self):
-        Requests.new_requests[self.user] = [self.timeslot, self.status]
 
+    @property 
+    def request_template(self):
+        Requests.new_requests[self.date] = [self.user, self.timeslots, self.status]
+        return Requests.new_requests
+
+    def display_request(cls):
+        print(cls.request_template)
     
-    def display_requests():
-        for key, value in Requests.new_requests.items():
-            print (f"\n{key}: {value}")
+    
+    @classmethod
+    def accept_request(cls):
+        for key, value in (cls.display_requests()):
+            if key == date:
+                print (value)
+            
 
-    def accept_request(user):
+    """
+    def display_requests():
+        print("Requests made today:")
         for key, value in Requests.new_requests.items():
-            if key == user:
-                value[1] = 'accepted' # change status to accepted
-                times_accepted = (value[0]) # list of times accepted
-                print (times_accepted)
-            if key != user:
-                times_4review = (value)
-                    
-                print (times_4review)
-    """def cancel_request(cls):
-        for item1 in times_accepted:
-            if item1 in times_4review[0]:
-                print('yay')
+            print (f"\n\t{key}: {value}")
+            
+            def cancel_request():
+        print(Requests.times_accepted)
+        if item1 in times_4review[0]:
+                    print('yay')
 
 
 
@@ -49,18 +55,16 @@ class Requests():
            
                 
                 
-req_1 = Requests('Jill', 'dd/mm/yy', ['1-2', '3-6'])
+req_1 = Requests('Jill','dd/mm/yy', ['1-2', '3-6'])
 req_2 = Requests('nuse', 'dd/mm/yy', ['1-2', '8-6'])
 req_3 = Requests('Josl', 'dd/mm/yy', ['2-1', '3-6'])
 req_4 = Requests('Jodjd', 'dd/mm/yy', ['1-2', '9-6'])
-req_1.add_request()
-req_2.add_request()
-req_3.add_request()
-req_4.add_request()
 
 
-Requests.accept_request("nuse")
+
+Requests.display_request(Requests)
 "\n"
+#Requests.cancel_request()
 #Requests.cancel_request(Requests.accept_request("nuse"))
 #print(Requests.requests_made)
 #Requests.display_requests()
