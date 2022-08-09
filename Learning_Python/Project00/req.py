@@ -1,80 +1,42 @@
-class Requests():
-    new_requests = {}
-    times_accepted = []
-    times_4review = []
-    requests_made = 0
+class App():
+    users_count = 0
+    users = []
 
-    def __init__(self, user, date, timeslots=[], status='pending'):
-        self.user = user
-        self.date = date
-        self.timeslots = timeslots
-        self.status = status
+    all_requests = []
+    requests_count = 0
 
-        Requests.requests_made += 1 
+    def __init__(self, user_info, request_info):
+        self.user_info = self.User()
+        users_count += 1
 
-    # group requests made by day
-     
-    def all_requests(self):
-        Requests.new_requests[self.date] = [self.user, self.timeslots, self.status]
-        print(Requests.new_requests)
+        self.request_info = self.Request()
+    
+    def show_info(cls):
+        users[f"user_1:"] = [cls.User.info]
+        print(cls.users)
+    
+    class User():
+        
+        def __init__(self, fname, lname, email, phone):
+            self.fname = fname
+            self.lname = lname
+            self.email = email
+            self.phone = phone
 
-    # given requests made, select one request to approve
-    def accept_this_request(user):
-        for key, value in Requests.new_requests.items():
-            print(key, value)
-            if (value[0] == user):
-                times_accepted = value
-                print(times_accepted)
+        @property
+        def info(self):
+            return(self.fname, self.lname, self.email, self.phone)
 
-            if (value[0] != user):
-                times_4review = value
-                print(times_4review)
-    # check if the approval of one request affected any other
-    def review_other_requests(cls):
-        for item1 in cls.times_accepted[1]:
-            for item2 in cls.times_4review[1]:
-                if item1 == item2:
-                    print(item1)
-            
+        def create_request(self, date, timeslots=[]):
+            request = [self.fname, date, [timeslots]]
 
-    """
-    def display_requests():
-        print("Requests made today:")
-        for key, value in Requests.new_requests.items():
-            print (f"\n\t{key}: {value}")
-            
-            def cancel_request():
-        print(Requests.times_accepted)
-        if item1 in times_4review[0]:
-                    print('yay')
+            App.requests_count += 1
+            App.all_requests.append(request)
+
+            return(App.all_requests)
+
+user1 = App.User('Joe', 'Roe', 'jR@email.com', '315 328 9034')
+print(user1.create_request('dd/mm/yy', ['1pm-2pm', '2pm-3pm']))
 
 
-
-                #print(f"times_4review: {times_4review}")
-
-            i=0
-                while i<len(times_accepted):
-                    if times_accepted[i] in times_4review[0]:
-                        times_4review[1] = 'declined'
-                        i+=1
-                    
-                print(times_4review)
-"""
-                    
-           
-                
-                
-req_1 = Requests('Jill','dd/mm/yy', ['1-2', '3-6'])
-req_2 = Requests('nuse', 'dd/mm/yy', ['1-2', '8-6'])
-req_3 = Requests('Josl', 'dd/mm/yy', ['2-1', '3-6'])
-req_4 = Requests('Jodjd', 'dd/mm/yy', ['1-2', '9-6'])
-
-Requests.all_requests(self)
-Requests.accept_this_request('nuse')
-
-#Requests.cancel_request()
-#Requests.cancel_request(Requests.accept_request("nuse"))
-#print(Requests.requests_made)
-#Requests.display_requests()
-#req_1.review_request('')
-#print(req_1.status)
+        

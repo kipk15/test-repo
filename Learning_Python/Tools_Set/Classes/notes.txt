@@ -52,4 +52,6 @@ Importing classes
       python lets you store classes in modules and then import the classes
       you need into your main program
     - You can either import a single class or multiple classes in a modules
-    -n
+
+Classes within classes(inner and outer classes) - for example, having a laptop 
+    class inside a student class
