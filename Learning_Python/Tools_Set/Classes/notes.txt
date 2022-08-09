@@ -9,6 +9,12 @@ you work with instances of a class
     - a special method that runs automatically whenever
     we create a new instance based on the given class
 
+    Types of methods
+    1. Regular Methods - take instance(self) as the first argument
+    2. Class Methods(have @classmethod decorator) - take class(cls) as 1st argument
+    3. Static Methods - unlike the two above, these don't pass anything automatically nothing
+                        like regular functions, only added bcz they have some logical connection
+
 Making an instance from a class
 Think of a class as a set of instructions that tells python 
 how to make individual instances representing specific objects
@@ -32,7 +38,7 @@ defining attributes and methods for the child class
     - You can also override any method from the parent class that doesn't fit what
       you are trying to model with the child class. You do this by re-writing the
       method and printing some info to reflect that the given method doesn't apply
-
+ to check Inheritance, use isinstance, issubclass
 Instances as Attributes
     - you can break your large class into smaller classes that work together
       For example, if we continue adding detail to the electricCar class,

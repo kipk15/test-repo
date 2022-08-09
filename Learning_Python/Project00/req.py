@@ -1,7 +1,7 @@
 class Requests():
     new_requests = {}
-    times_accepted = {}
-    times_4review = {}
+    times_accepted = []
+    times_4review = []
     requests_made = 0
 
     def __init__(self, user, date, timeslots=[], status='pending'):
@@ -12,20 +12,29 @@ class Requests():
 
         Requests.requests_made += 1 
 
-    @property 
-    def request_template(self):
+    # group requests made by day
+     
+    def all_requests(self):
         Requests.new_requests[self.date] = [self.user, self.timeslots, self.status]
-        return Requests.new_requests
+        print(Requests.new_requests)
 
-    def display_request(cls):
-        print(cls.request_template)
-    
-    
-    @classmethod
-    def accept_request(cls):
-        for key, value in (cls.display_requests()):
-            if key == date:
-                print (value)
+    # given requests made, select one request to approve
+    def accept_this_request(user):
+        for key, value in Requests.new_requests.items():
+            print(key, value)
+            if (value[0] == user):
+                times_accepted = value
+                print(times_accepted)
+
+            if (value[0] != user):
+                times_4review = value
+                print(times_4review)
+    # check if the approval of one request affected any other
+    def review_other_requests(cls):
+        for item1 in cls.times_accepted[1]:
+            for item2 in cls.times_4review[1]:
+                if item1 == item2:
+                    print(item1)
             
 
     """
@@ -60,10 +69,9 @@ req_2 = Requests('nuse', 'dd/mm/yy', ['1-2', '8-6'])
 req_3 = Requests('Josl', 'dd/mm/yy', ['2-1', '3-6'])
 req_4 = Requests('Jodjd', 'dd/mm/yy', ['1-2', '9-6'])
 
+Requests.all_requests(self)
+Requests.accept_this_request('nuse')
 
-
-Requests.display_request(Requests)
-"\n"
 #Requests.cancel_request()
 #Requests.cancel_request(Requests.accept_request("nuse"))
 #print(Requests.requests_made)
