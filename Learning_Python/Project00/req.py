@@ -1,8 +1,17 @@
-class App():
+schedule = {
+    'dd/mm/yy1': {
+        'available': ['12pm', '1pm', '7pm'],
+        'accepted': [],
+        'pending': []
+
+    }
+}
+
+class Request():
     users_count = 0
     users = []
 
-    all_requests = []
+    all_requests = {}
     requests_count = 0
 
     def __init__(self, user_info, request_info):
@@ -28,15 +37,18 @@ class App():
             return(self.fname, self.lname, self.email, self.phone)
 
         def create_request(self, date, timeslots=[]):
-            request = [self.fname, date, [timeslots]]
+            request = [self.fname , date, timeslots]
 
-            App.requests_count += 1
-            App.all_requests.append(request)
+            Request.requests_count += 1
+            Request.all_requests[f'request_{Request.requests_count}'] = request
 
-            return(App.all_requests)
-
-user1 = App.User('Joe', 'Roe', 'jR@email.com', '315 328 9034')
-print(user1.create_request('dd/mm/yy', ['1pm-2pm', '2pm-3pm']))
+user1 = Request.User('Joe', 'Roe', 'jR@email.com', '315 328 9034')
+user2 = Request.User('seth', 'tue', 'St@email.com', '315 678 9034')
+user3 = Request.User('hui', 'hutf', 'hH@email.com', '315 328 6774')
+user1.create_request('08/05/21', ['1pm-2pm', '2pm-3pm'])
+user2.create_request('02/05/23', ['2pm-3pm', '3pm-4pm'])
+user3.create_request('03/01/05', ['5pm-6pm', '6pm-7pm'])
+print(Request.all_requests)
 
 
         
