@@ -37,28 +37,4 @@ print("we do not have a schedule for date selected. Please revise accordingly")
     time_requested = "timeR"
 }
 
-input(date)=request_0
-#request structure
-#date- yet to happen
-#time - choose from time slots
 
-request_1 = {"date": "a", schedule: [True, False, False, False]}
-request_2 = {"date": "b", schedule: [True, True, False, False]}
-
-def request_validation(){
-    #check if date_requested is valid
-    #in the future? in availabity
-    if(availability["date"] == user_input[date_requested]):
-        #check time availability
-        #if available change time availability 
-        #store that info somewhere
-        if(time_requested):
-            print("full match")
-            print("adjust availability to show request")
-        print("only dates match")
-    else(
-        #date_requested not valid
-      print("select different date and schedule")
-    )
-}
-def  """

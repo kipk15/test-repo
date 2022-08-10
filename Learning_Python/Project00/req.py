@@ -8,21 +8,17 @@ schedule = {
 }
 
 class Request():
-    users_count = 0
-    users = []
+    all_users = {}
+    user_count = 0
 
-    all_requests = {}
-    requests_count = 0
+    all_user_requests = {}
+    request_count = 0
 
     def __init__(self, user_info, request_info):
         self.user_info = self.User()
-        users_count += 1
 
         self.request_info = self.Request()
     
-    def show_info(cls):
-        users[f"user_1:"] = [cls.User.info]
-        print(cls.users)
     
     class User():
         
@@ -32,23 +28,27 @@ class Request():
             self.email = email
             self.phone = phone
 
+            Request.all_users[f"user_{Request.user_count}"] = [self.fname, self.lname, self.email, self.phone]
+            Request.user_count += 1
         @property
-        def info(self):
+        def user_info(self):
             return(self.fname, self.lname, self.email, self.phone)
 
         def create_request(self, date, timeslots=[]):
-            request = [self.fname , date, timeslots]
+            request = [self.email , date, timeslots]
 
-            Request.requests_count += 1
-            Request.all_requests[f'request_{Request.requests_count}'] = request
+            Request.all_user_requests[f'request_{Request.request_count}'] = request
+            Request.request_count += 1
 
-user1 = Request.User('Joe', 'Roe', 'jR@email.com', '315 328 9034')
+#user1 = Request.User('Joe', 'Roe', 'jR@email.com', '315 328 9034')
 user2 = Request.User('seth', 'tue', 'St@email.com', '315 678 9034')
 user3 = Request.User('hui', 'hutf', 'hH@email.com', '315 328 6774')
-user1.create_request('08/05/21', ['1pm-2pm', '2pm-3pm'])
+#user1.create_request('08/05/21', ['1pm-2pm', '2pm-3pm'])
 user2.create_request('02/05/23', ['2pm-3pm', '3pm-4pm'])
-user3.create_request('03/01/05', ['5pm-6pm', '6pm-7pm'])
-print(Request.all_requests)
+#user3.create_request('03/01/05', ['5pm-6pm', '6pm-7pm'])
+print("\n",Request.all_user_requests)
+
+print("\n",Request.all_users,"\n")
 
 
         
