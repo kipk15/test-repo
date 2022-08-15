@@ -27,7 +27,7 @@ class Request():
             return(self.fname, self.lname, self.email, self.phone)
 
         def create_request(self, date, timeslots=[]):
-            request = [self.email , date, timeslots]
+            request = [self.fname, self.email , date, timeslots]
 
 
             Request.all_user_requests[f'request_{Request.request_count}'] = request
