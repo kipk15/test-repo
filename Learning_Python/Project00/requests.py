@@ -20,17 +20,17 @@ class Request():
             self.email = email
             self.phone = phone
 
-            Request.all_users[f"user_{Request.user_count}"] = [self.fname, self.lname, self.email, self.phone]
+            #Request.all_users[f"user_{Request.user_count}"] = [self.fname, self.lname, self.email, self.phone]
             Request.user_count += 1
         @property
         def user_info(self):
             return(self.fname, self.lname, self.email, self.phone)
 
         def create_request(self, date, timeslots=[]):
-            request = [self.fname, self.email , date, timeslots]
+            request = [self.fname, self.email, timeslots]
 
 
-            Request.all_user_requests[f'request_{Request.request_count}'] = request
+            Request.all_user_requests[f'{date}'] = request
             Request.request_count += 1
 
         
