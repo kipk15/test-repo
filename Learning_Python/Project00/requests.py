@@ -1,10 +1,15 @@
-
+schedule = {
+    '08/05/21': {
+        'available': ['11am', '12pm', '1pm', '3pm', '7pm'],
+        'accepted': [],
+        'pending': []},
+        '08/06/21': {
+        'available': ['11am', '1pm', '4pm', '7pm'],
+        'accepted': [],
+        'pending': [],
+        }
+    }
 class Request():
-    all_users = {}
-    user_count = 0
-
-    all_user_requests = {}
-    request_count = 0
 
     def __init__(self, user_info, request_info):
         self.user_info = self.User()
@@ -20,26 +25,34 @@ class Request():
             self.email = email
             self.phone = phone
 
-            #Request.all_users[f"user_{Request.user_count}"] = [self.fname, self.lname, self.email, self.phone]
-            Request.user_count += 1
         @property
         def user_info(self):
             return(self.fname, self.lname, self.email, self.phone)
 
         def create_request(self, date, timeslots=[]):
-            request = [self.fname, self.email, timeslots]
+            request = []
+
+            if date in schedule.keys():
+                for time in timeslots:
+                    cond1 = (time in schedule[date]['available'])
+                    if cond1:
+                        request.append([self.email, time]) 
+                    if not cond1:
+                        request=[]
+                        print(f"Sorry, {self.fname.title()}, some of your requested"
+                            " times are currently not available on our schedule")
+                        break
+    
+                schedule[date]['pending'].extend(request)
+               
+                    
 
 
-            Request.all_user_requests[f'{date}'] = request
-            Request.request_count += 1
+            else:
+                print(f'Date, {date}, not available'
+                    'Please select date available on schedule')
 
-        
-
-       
-
-#print("\n",Request.all_user_requests)
-
-#print("\n",Request.all_users,"\n")
+            return(schedule)
 
 
-        
+
