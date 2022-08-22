@@ -3,9 +3,8 @@ import requests
 user1 = requests.Request.User('Joe', 'Roe', 'jR@email.com', '315 328 9034')
 user2 = requests.Request.User('seth', 'tue', 'St@email.com', '315 678 9034')
 user3 = requests.Request.User('hui', 'hutf', 'hH@email.com', '315 328 6774')
-user1.create_request('08/05/21', ['1pm', '3pm'])
-user2.create_request('08/05/21', ['12pm', '3pm', '7pm'])
-user3.create_request('08/06/21', ['13am', '1pm'])
+user1.create_request('08/05/21', ['1pm', '3pm', '7pm'])
+user2.create_request('08/05/21', ['1pm', '3pm', '7pm'])
 
 sch = requests.schedule
 def accept_request(date, user_email):
@@ -43,6 +42,8 @@ def accept_request(date, user_email):
 print(f'\n\tSchedule: \n {sch}') 
             
 accept_request('08/05/21','jR@email.com')
+user3.create_request('08/05/21', ['7pm', '1pm'])
+
 
 print(f'\n\t Updated Schedule: \n{sch}')
 
