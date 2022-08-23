@@ -1,6 +1,6 @@
 schedule = {
     '08/05/21': {
-        'available': ['11am', '12pm', '1pm', '3pm', '7pm'],
+        'available': ['11am', '12pm', '1pm', '2pm', '3pm', '4pm', '7pm'],
         'accepted': [],
         'pending': []},
         '08/06/21': {
@@ -39,18 +39,15 @@ class Request():
                         request.append([self.email, time]) 
                     if not cond1:
                         request=[]
-                        print(f"Sorry, {self.fname.title()}, some of your requested"
-                            " times are currently not available on our schedule")
+                        print(f"\nSorry, {self.fname.title()}, {time} is currently not"
+                            f" available on {date}. Please revise your request accordingly")
                         break
     
                 schedule[date]['pending'].extend(request)
-               
-                    
-
 
             else:
-                print(f'Date, {date}, not available'
-                    'Please select date available on schedule')
+                print(f'\n {self.fname.title()}, We do not currently have anything available on {date}.')
+                   
 
             return(schedule)
 

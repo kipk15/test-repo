@@ -1,0 +1,8 @@
+Python Crash Course, Continued:
+
+Project #1 Data Visualization
+    - Using Matplotlib( a mathematical plotting library) to make
+      simple plots, such as line graphs and scatter plots, and conclude
+      with visualizing the 'random walk' concept
+    - install: $ python -m pip install --user matplotlib( can run w/o --user flag)
+    - https://matplotlib.org/gallery has sample Visualizations w code
