@@ -1,11 +1,26 @@
 import requests
-import sqlite3
+#import sqlite3
+import pymongo
+from pymongo import MongoClient
+
+cluster = MongoClient("mongodb+srv://lager:3#,2$,1!@cluster00.j1wxvz1.mongodb.net/?retryWrites=true&w=majority")
+db = cluster["test"]
+collection = db["schedule"]
 
 #conn = sqlite3.connect('employee.db')
 #c = conn.cursor()
 
+import pymongo
+from pymongo import MongoClient
+
+cluster = MongoClient("mongodb+srv://lager:3#,2$,1!@cluster00.j1wxvz1.mongodb.net/?retryWrites=true&w=majority")
+db = cluster["test"]
+sch_collection = db["schedule"]
+req_collection = db["requests"]
+
 
 sch = requests.schedule
+sch_collection.insert_many([sch])
 def accept_request(date, user_email):
     to_accept=[]
     for key, value in sch.items():

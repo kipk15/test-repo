@@ -1,3 +1,5 @@
+
+
 schedule = {
     '08/05/21': {
         'available': ['11am', '12pm', '1pm', '2pm', '3pm', '4pm', '7pm'],
@@ -9,6 +11,7 @@ schedule = {
         'pending': [],
         }
     }
+
 class Request():
 
     def __init__(self, user_info, request_info):
@@ -50,6 +53,6 @@ class Request():
                    
 
             return(schedule)
-
+            
 
 
