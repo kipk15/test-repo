@@ -1,0 +1,12 @@
+{% extends "changia_app/base.html" %}
+
+{% block content %}
+<p>Mada</p>
+<ul>
+    {% for topic in topics %}
+    <li> {{ topic }}</li>
+    {% empty %}
+    <li> Hakuna mada yoyote kwa sasa</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
